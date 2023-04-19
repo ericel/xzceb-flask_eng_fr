@@ -1,12 +1,14 @@
-import json
-from ibm_watson import LanguageTranslatorV3
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+""" Module to translate text from English to French and vice versa"""
+
 import os
 from dotenv import load_dotenv
-from ibm_watson import ApiException
+from ibm_watson import LanguageTranslatorV3, ApiException
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+
 
 load_dotenv()
 
+# API Environment Variables
 APIKEY = os.environ['apikey']
 URL = os.environ['url']
 VERSION = "2018-05-01"
