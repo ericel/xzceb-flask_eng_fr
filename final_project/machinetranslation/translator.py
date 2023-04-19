@@ -20,28 +20,29 @@ try:
     )
 
     language_translator.set_service_url(URL)
-
-    language_translator.set_disable_ssl_verification(True)
-    
 except ApiException as ex:
-    print("Method failed with status code " + str(ex.code) + ": " + ex.message)
+    print(f"Method failed with status code {str(ex.code)}: {ex.message}")
 
-def englishToFrench(englishText):
+def english_to_french(text=None):
     """
     This function translates text from English to French
     """
+    if not text:
+        # If no text is provided, return None
+        return None
     translation = language_translator.translate(
-    text=englishText,
+    text=text,
     model_id='en-fr').get_result()
-    frenchText = translation["translations"][0]['translation']
-    return frenchText
+    return translation["translations"][0]['translation']
 
-def frenchToEnglish(frenchText):
+def french_to_english(text=None):
     """
     This function translates text from French to English
     """
+    if not text:
+        # If no text is provided, return None
+        return None
     translation = language_translator.translate(
-    text=frenchText,
+    text=text,
     model_id='fr-en').get_result()
-    englishText = translation["translations"][0]['translation']
-    return englishText
+    return translation["translations"][0]['translation']
