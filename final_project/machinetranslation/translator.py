@@ -22,6 +22,7 @@ try:
     )
 
     language_translator.set_service_url(URL)
+    language_translator.set_disable_ssl_verification(True)
 except ApiException as ex:
     print(f"Method failed with status code {str(ex.code)}: {ex.message}")
 
